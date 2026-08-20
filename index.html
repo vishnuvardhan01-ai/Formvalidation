@@ -1,347 +1,693 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Login Form</title>
+
     <style>
+
         * {
             box-sizing: border-box;
         }
-        /* body{
-            background-color:black;
-        } */
-       
-        .c1 {
-            background-image:url("https://i.pinimg.com/736x/0c/6c/42/0c6c42bca83df6385bb24024654b97ad.jpg");
-            background-repeat:no-repeat;
-            background-size:cover;
+
+        body {
+            margin: 0;
+            min-height: 100vh;
             display: flex;
-            /* background: rgba(255, 255, 255, 0.2); */
-            /* backdrop-filter: blur(10px); */
-           
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+
+            background-color: #222;
+        }
+
+        /* Main Container */
+
+        .c1 {
+            background-image: url("https://i.pinimg.com/736x/0c/6c/42/0c6c42bca83df6385bb24024654b97ad.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            display: flex;
+
             border-radius: 20px;
             overflow: hidden;
-            width:1240px;
-            height:670px;
+
+            width: 1240px;
+            height: 670px;
+
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
+
+
+        /* Image Section */
+
         #track {
-            border:1px 0 1px 1px;
             border-radius: 20px 0 0 20px;
             overflow: hidden;
-            margin-left:17%;
-            margin-top:40px;
+
+            margin-left: 17%;
+            margin-top: 40px;
+
             width: 430px;
             height: 600px;
         }
+
         #track img {
             width: 430px;
             height: 600px;
+
             object-fit: cover;
             display: block;
-            opacity:0.9;
+
+            opacity: 0.9;
         }
+
+
+        /* Login Section */
+
         #login {
             width: 430px;
             height: 600px;
-            margin-top:40px;
-            padding:40px;
-            border:1px 0 1px 1px;
+
+            margin-top: 40px;
+            padding: 40px;
+
             background: rgba(255, 255, 255, 0.85);
+
             border-radius: 0 20px 20px 0;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        span {
+
+
+        /* Labels */
+
+        #login label {
+            display: block;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            color: #a82f2f;
+
+            margin-bottom: 2px;
+        }
+
+
+        /* Inputs */
+
+        #login input[type="text"],
+        #login input[type="password"],
+        #login input[type="email"] {
+
+            width: 100%;
+
+            padding: 10px 15px;
+
+            border: 1px solid #1a1818;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            background-color: rgb(196, 68, 68);
+
+            transition: 0.3s;
+        }
+
+
+        /* Input Focus */
+
+        #login input[type="text"]:focus,
+        #login input[type="password"]:focus,
+        #login input[type="email"]:focus {
+
+            border: 2px solid #4a90e2;
+
+            box-shadow:
+                0 0 8px rgba(74, 144, 226, 0.4);
+        }
+
+
+        /* Placeholder */
+
+        #login input::placeholder {
+            color: #999;
+        }
+
+
+        /* Error Messages */
+
+        #login span {
+
+            display: block;
+
             color: red;
+
             font-size: 12px;
+
+            font-weight: bold;
+
+            margin-top: 3px;
         }
-        #id5{
-            width:fit-content;
-            height:30px;
-            padding:0px 15px 0px 15px;
-            font-size: medium;
-            border-radius:20px;
-            background-color:rgb(205, 51, 51);
-            margin-left:30%;
+
+
+        /* Button */
+
+        #id5 {
+
+            width: 180px;
+            height: 40px;
+
+            padding: 5px 15px;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            border: none;
+
+            border-radius: 20px;
+
+            background-color: rgb(205, 51, 51);
+
+            color: white;
+
+            margin: 10px auto;
+
+            cursor: pointer;
+
+            transition: 0.3s;
         }
-        #us{
-            border-radius:10px;
-            padding:10px 15px 10px 15px;
+
+
+        #id5:hover {
+
+            background-color: rgb(160, 35, 35);
+
+            transform: scale(1.05);
         }
-        #pw{
-             border-radius:10px;
-            padding:10px 15px 10px 15px;
+
+
+        #id5:active {
+
+            transform: scale(0.98);
         }
-        #em{ border-radius:10px;
-            padding:10px 15px 10px 15px;
+
+
+        /* Bottom Text */
+
+        #login p {
+
+            text-align: center;
+
+            font-size: 14px;
+
+            color: #555;
+
+            margin-top: 10px;
         }
-        #cf{ border-radius:10px;
-            padding:10px 15px 10px 15px;
+
+
+        /* =========================
+           TABLET RESPONSIVE
+           ========================= */
+
+        @media (max-width: 1024px) {
+
+            .c1 {
+
+                width: 90%;
+
+                height: auto;
+
+                min-height: 600px;
+            }
+
+
+            #track {
+
+                margin-left: 5%;
+
+                width: 45%;
+
+                height: 550px;
+            }
+
+
+            #track img {
+
+                width: 100%;
+
+                height: 550px;
+            }
+
+
+            #login {
+
+                width: 45%;
+
+                height: 550px;
+
+                padding: 30px;
+            }
         }
-       
-
-#login label {
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    color: #a82f2f;
-    margin-bottom: 2px;
-}
-
-#login input[type="text"],
-#login input[type="password"],
-#login input[type="email"] {
-    width: 100%;
-    border: 1px solid #1a1818;
-    outline: none;
-    font-size: 14px;
-    background-color: rgb(196, 68, 68);
-    transition: 0.3s;
-}
 
 
-#login input[type="text"]:focus,
-#login input[type="password"]:focus,
-#login input[type="email"]:focus {
-    border: 2px solid #4a90e2;
-    box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
-}
+        /* =========================
+           MOBILE / PHONE
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 15px;
+
+                align-items: flex-start;
+            }
 
 
-#login input::placeholder {
-    color: #999;
-}
+            .c1 {
+
+                width: 100%;
+
+                height: auto;
+
+                min-height: auto;
+
+                display: flex;
+
+                flex-direction: column;
+
+                border-radius: 15px;
+            }
 
 
-#login span {
-    display: block;
-    color: red;
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: 3px;
-}
+            /* Image */
+
+            #track {
+
+                width: 100%;
+
+                height: 220px;
+
+                margin: 0;
+
+                border-radius: 15px 15px 0 0;
+            }
 
 
-#id5 {
-    width: 180px;
-    height: 40px;
-    padding: 5px 15px;
+            #track img {
 
-    font-size: 15px;
-    font-weight: bold;
+                width: 100%;
 
-    border: none;
-    border-radius: 20px;
+                height: 220px;
 
-    background-color: rgb(205, 51, 51);
-    color: white;
-
-    margin: 10px auto;
-}
+                object-fit: cover;
+            }
 
 
-#id5:hover {
-    background-color: rgb(160, 35, 35);
-    transform: scale(1.05);
-}
-#id5:active {
-    transform: scale(0.98);
-}
-#login p {
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-    margin-top: 10px;
-}
-/* =========================
-   TABLET RESPONSIVE
-   ========================= */
-@media (max-width: 1024px) {
+            /* Login */
 
-    .c1 {
-        width: 90%;
-        height: auto;
-        min-height: 600px;
-    }
+            #login {
 
-    #track {
-        margin-left: 5%;
-        width: 45%;
-        height: 550px;
-    }
+                width: 100%;
 
-    #track img {
-        width: 100%;
-        height: 550px;
-    }
+                height: auto;
 
-    #login {
-        width: 45%;
-        height: 550px;
-        padding: 30px;
-    }
-}
-/* =========================
-   MOBILE / PHONE RESPONSIVE
-   ========================= */
-@media (max-width: 600px) {
+                min-height: 450px;
 
-    body {
-        margin: 0;
-        padding: 15px;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+                margin: 0;
 
-    .c1 {
-        width: 100%;
-        height: auto;
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-        border-radius: 15px;
-        overflow: hidden;
-    }
+                padding: 25px 20px;
 
-    #track {
-        width: 100%;
-        height: 220px;
-        margin: 0;
-        border-radius: 15px 15px 0 0;
-    }
-
-    #track img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-    }
-
-    #login {
-        width: 100%;
-        height: auto;
-        min-height: 450px;
-        margin: 0;
-        padding: 25px 20px;
-        border-radius: 0 0 15px 15px;
-    }
-
-    #login label {
-        font-size: 14px;
-    }
-
-    #login input[type="text"],
-    #login input[type="password"],
-    #login input[type="email"] {
-        width: 100%;
-        font-size: 14px;
-        padding: 10px 12px;
-    }
-
-    #id5 {
-        width: 170px;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    #login p {
-        font-size: 13px;
-    }
-}
+                border-radius: 0 0 15px 15px;
+            }
 
 
+            #login label {
+
+                font-size: 14px;
+            }
+
+
+            #login input[type="text"],
+            #login input[type="password"],
+            #login input[type="email"] {
+
+                width: 100%;
+
+                font-size: 14px;
+
+                padding: 10px 12px;
+            }
+
+
+            #id5 {
+
+                width: 170px;
+
+                height: 40px;
+
+                font-size: 14px;
+            }
+
+
+            #login p {
+
+                font-size: 13px;
+            }
+        }
+
+
+        /* =========================
+           SMALL PHONES
+           ========================= */
+
+        @media (max-width: 400px) {
+
+            body {
+
+                padding: 10px;
+            }
+
+
+            #track {
+
+                height: 180px;
+            }
+
+
+            #track img {
+
+                height: 180px;
+            }
+
+
+            #login {
+
+                padding: 20px 15px;
+            }
+
+
+            #login label {
+
+                font-size: 13px;
+            }
+
+
+            #login input[type="text"],
+            #login input[type="password"],
+            #login input[type="email"] {
+
+                padding: 9px 10px;
+            }
+
+
+            #id5 {
+
+                width: 150px;
+
+                height: 38px;
+            }
+        }
 
     </style>
 </head>
+
+
 <body>
-    <script>
-        function valid() {
-            let u = document.forms["myform"]["username"].value;
-            let p = document.forms["myform"]["password"].value;
-            let e = document.forms["myform"]["email"].value;
-            let cf = document.forms["myform"]["conpass"].value;
-            let up = /^[a-z]{3,}$/;
-            //    let pp=/^[a-zA-Z0-9]{6,10}$/;
-            let pp = /^[A-Z][a-z]+[@#$%_]+[0-9]{2}$/
-            let ep = /^[a-zA-Z0-9]+@gmail.com$/
-            if (!up.test(u)) {
-                document.getElementById("id1").innerHTML = "invalid username";
-                document.getElementById("us").style.backgroundColor = "red";
-                return false;
-            }
-            else if (!pp.test(p)) {
-                document.getElementById("id2").innerHTML = "invalid password";
-                document.getElementById("pw").style.backgroundColor = "red";
-                return false;
-            }
-            else if (!ep.test(e)) {
-                document.getElementById("id3").innerHTML = "invalid email";
-                document.getElementById("em").style.backgroundColor = "red";
-                return false;
-            }
-            else if (p != cf) {
-                alert("password is wrong");
-                return false;
-            }
-            else {
-                alert("Login successfull")
-                return true;
-            }
-        }
-    </script>
+
+
     <div class="c1">
 
+
+        <!-- Image Section -->
+
         <div id="track">
-            <img  src="https://i.pinimg.com/1200x/a4/cf/2d/a4cf2d71d6f0f58f2e3ba57b2bf82cdb.jpg"
-                width="430px"
-                height="500px">
+
+            <img
+                src="https://i.pinimg.com/1200x/a4/cf/2d/a4cf2d71d6f0f58f2e3ba57b2bf82cdb.jpg"
+                alt="Login image">
+
         </div>
-        <form onsubmit="return valid()" name="myform">
+
+
+        <!-- Login Form -->
+
+        <form
+            onsubmit="return valid()"
+            name="myform">
+
+
             <div id="login">
+
+
+                <!-- Username -->
+
                 <label>Username</label>
+
                 <br>
-                <input type="text"
+
+                <input
+                    type="text"
                     placeholder="Enter username"
                     id="us"
                     name="username"
                     required>
+
                 <span id="id1"></span>
+
+
                 <br><br>
+
+
+                <!-- Password -->
+
                 <label>Password</label>
+
                 <br>
-                <input type="password"
+
+                <input
+                    type="password"
                     placeholder="Enter password"
                     id="pw"
                     name="password"
                     required>
+
                 <span id="id2"></span>
+
+
                 <br><br>
+
+
+                <!-- Email -->
+
                 <label>Email</label>
+
                 <br>
-                <input type="email"
+
+                <input
+                    type="email"
                     placeholder="Enter email ID"
                     id="em"
                     name="email"
                     required>
+
                 <span id="id3"></span>
+
+
                 <br><br>
-                <label>Confirm password</label>
+
+
+                <!-- Confirm Password -->
+
+                <label>Confirm Password</label>
+
                 <br>
-                <input type="password"
+
+                <input
+                    type="password"
                     placeholder="Confirm password"
                     id="cf"
                     name="conpass"
                     required>
+
                 <span id="id4"></span>
+
+
                 <br><br>
-                <input id="id5"  type="submit" value="Create account"><br>
-                <p>Already have an account?Login</p>
+
+
+                <!-- Submit Button -->
+
+                <input
+                    id="id5"
+                    type="submit"
+                    value="Create Account">
+
+
+                <p>
+                    Already have an account? Login
+                </p>
+
+
             </div>
+
         </form>
+
     </div>
+
+
+    <!-- =========================
+         JAVASCRIPT VALIDATION
+         ========================= -->
+
+    <script>
+
+        function valid() {
+
+            let u =
+                document.forms["myform"]["username"].value;
+
+            let p =
+                document.forms["myform"]["password"].value;
+
+            let e =
+                document.forms["myform"]["email"].value;
+
+            let cf =
+                document.forms["myform"]["conpass"].value;
+
+
+            /* Reset previous errors */
+
+            document.getElementById("us")
+                .style.backgroundColor = "";
+
+            document.getElementById("pw")
+                .style.backgroundColor = "";
+
+            document.getElementById("em")
+                .style.backgroundColor = "";
+
+            document.getElementById("cf")
+                .style.backgroundColor = "";
+
+
+            document.getElementById("id1")
+                .innerHTML = "";
+
+            document.getElementById("id2")
+                .innerHTML = "";
+
+            document.getElementById("id3")
+                .innerHTML = "";
+
+            document.getElementById("id4")
+                .innerHTML = "";
+
+
+            /* Username validation */
+
+            let up = /^[a-zA-Z]{3,}$/;
+
+
+            /* Password validation */
+
+            let pp =
+                /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%_]).{8,}$/;
+
+
+            /* Gmail validation */
+
+            let ep =
+                /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+
+            /* Check username */
+
+            if (!up.test(u)) {
+
+                document.getElementById("id1")
+                    .innerHTML = "Invalid username";
+
+                document.getElementById("us")
+                    .style.backgroundColor = "red";
+
+                return false;
+            }
+
+
+            /* Check password */
+
+            else if (!pp.test(p)) {
+
+                document.getElementById("id2")
+                    .innerHTML =
+                    "Password must have 8+ characters, uppercase, lowercase, number & special character";
+
+                document.getElementById("pw")
+                    .style.backgroundColor = "red";
+
+                return false;
+            }
+
+
+            /* Check email */
+
+            else if (!ep.test(e)) {
+
+                document.getElementById("id3")
+                    .innerHTML =
+                    "Invalid Gmail address";
+
+                document.getElementById("em")
+                    .style.backgroundColor = "red";
+
+                return false;
+            }
+
+
+            /* Check confirm password */
+
+            else if (p !== cf) {
+
+                document.getElementById("id4")
+                    .innerHTML =
+                    "Passwords do not match";
+
+                document.getElementById("cf")
+                    .style.backgroundColor = "red";
+
+                return false;
+            }
+
+
+            /* Everything is valid */
+
+            else {
+
+                alert("Login successful");
+
+                return true;
+            }
+
+        }
+
+    </script>
+
+
 </body>
+
 </html>
+```
